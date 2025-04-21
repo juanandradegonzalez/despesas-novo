@@ -1,0 +1,88 @@
+body {
+    font-family: sans-serif; /* Fonte simples e comum */
+    background-color: #f0f2f5; /* Cor de fundo clara, similar à imagem */
+    display: flex; /* Usa flexbox para centralizar */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    min-height: 100vh; /* Garante que o container ocupe a altura total da tela */
+    margin: 0; /* Remove margens padrão do body */
+}
+
+.login-container {
+    width: 100%; /* Ocupa a largura total do pai (body) */
+    max-width: 400px; /* Limita a largura máxima do container */
+    padding: 20px;
+    box-sizing: border-box; /* Inclui padding na largura total */
+}
+
+.login-box {
+    background-color: #fff; /* Fundo branco para a caixa de login */
+    padding: 30px;
+    border-radius: 8px; /* Cantos arredondados */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    text-align: center; /* Centraliza o texto e os elementos internos que se comportam como texto */
+}
+
+.login-box h2 {
+    margin-top: 0; /* Remove margem superior padrão do h2 */
+    margin-bottom: 30px; /* Espaço abaixo do título */
+    color: #1877f2; /* Cor azul para o título, similar à imagem */
+}
+
+.input-group {
+    margin-bottom: 15px; /* Espaço entre os grupos de input */
+    text-align: left; /* Alinha label e input à esquerda */
+}
+
+.input-group label {
+    display: block; /* Faz o label ocupar sua própria linha */
+    margin-bottom: 5px; /* Espaço entre o label e o input */
+    font-weight: bold;
+    color: #555;
+    font-size: 0.9em; /* Tamanho menor para o label */
+}
+
+.input-group input {
+    width: 100%; /* Input ocupa a largura total do pai (.input-group) */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Inclui padding na largura total */
+    font-size: 1em;
+}
+
+.btn-login {
+    width: 100%; /* Botão ocupa a largura total */
+    padding: 12px;
+    background-color: #1877f2; /* Cor azul do botão */
+    color: white; /* Texto branco */
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1em;
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+    transition: background-color 0.3s ease; /* Efeito suave na mudança de cor */
+    margin-top: 10px; /* Espaço acima do botão */
+}
+
+.btn-login:hover {
+    background-color: #165ae2; /* Cor azul um pouco mais escura ao passar o mouse */
+}
+
+.links {
+    margin-top: 20px; /* Espaço acima dos links */
+    font-size: 0.9em;
+    color: #555;
+}
+
+.links a {
+    color: #1877f2; /* Cor azul para os links */
+    text-decoration: none; /* Remove o sublinhado padrão dos links */
+}
+
+.links a:hover {
+    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+}
+
+.links span {
+    margin: 0 5px; /* Espaço entre os links e o separador '|' */
+}
