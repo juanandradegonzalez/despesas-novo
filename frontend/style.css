@@ -6,13 +6,15 @@ body {
     align-items: center; /* Centraliza verticalmente */
     min-height: 100vh; /* Garante que o container ocupe a altura total da tela */
     margin: 0; /* Remove margens padrão do body */
+    padding: 20px; /* Adiciona um padding para não colar nas bordas em telas pequenas */
+    box-sizing: border-box;
+    line-height: 1.5; /* Melhora a legibilidade do texto */
 }
 
 .login-container {
     width: 100%; /* Ocupa a largura total do pai (body) */
     max-width: 400px; /* Limita a largura máxima do container */
-    padding: 20px;
-    box-sizing: border-box; /* Inclui padding na largura total */
+    /* Padding e box-sizing já no body */
 }
 
 .login-box {
@@ -27,29 +29,70 @@ body {
     margin-top: 0; /* Remove margem superior padrão do h2 */
     margin-bottom: 30px; /* Espaço abaixo do título */
     color: #1877f2; /* Cor azul para o título, similar à imagem */
+    font-size: 1.8em; /* Tamanho maior para o título */
 }
 
 .input-group {
     margin-bottom: 15px; /* Espaço entre os grupos de input */
-    text-align: left; /* Alinha label e input à esquerda */
+    text-align: left; /* Alinha label e input/select à esquerda */
+    width: 100%; /* Garante que o grupo ocupe a largura total */
 }
 
 .input-group label {
     display: block; /* Faz o label ocupar sua própria linha */
-    margin-bottom: 5px; /* Espaço entre o label e o input */
+    margin-bottom: 5px; /* Espaço entre o label e o input/select */
     font-weight: bold;
     color: #555;
     font-size: 0.9em; /* Tamanho menor para o label */
 }
 
-.input-group input {
-    width: 100%; /* Input ocupa a largura total do pai (.input-group) */
+/* Estilo base para inputs e selects para consistência */
+.input-group input[type="text"],
+.input-group input[type="password"],
+.input-group select { /* Seleciona inputs de texto/senha E selects */
+    width: 100%; /* Ocupam a largura total do pai (.input-group) */
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    box-sizing: border-box; /* Inclui padding na largura total */
+    box-sizing: border-box; /* Inclui padding e border na largura total */
     font-size: 1em;
+    line-height: 1.5; /* Alinha o texto verticalmente */
+    height: auto; /* Altura automática */
+
+    /* Reset básico para selects */
+    -webkit-appearance: none; /* Remove aparência padrão no Webkit (Chrome, Safari) */
+    -moz-appearance: none;    /* Remove aparência padrão no Firefox */
+    appearance: none;         /* Remove aparência padrão em outros */
+    background-color: #fff;   /* Garante fundo branco */
+    /* Adiciona um pequeno ícone de seta para selects, se desejar (mais avançado) */
+    /* Requer um background-image SVG e ajuste de padding/position */
+    /* Exemplo básico (pode precisar de ajustes finos): */
+    /* background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24'%3E%3Cpath fill='%23555' d='M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z'/%3E%3C/svg%3E"); */
+    /* background-repeat: no-repeat; */
+    /* background-position: right 10px center; */
+    /* background-size: 12px; */
+    /* padding-right: 30px; Adicionar padding à direita se usar seta */
 }
+
+/* Estilo ao focar no campo (clicar nele) */
+.input-group input[type="text"]:focus,
+.input-group input[type="password"]:focus,
+.input-group select:focus {
+    outline: none; /* Remove a borda de foco padrão do navegador */
+    border-color: #1877f2; /* Borda azul ao focar */
+    box-shadow: 0 0 0 0.2rem rgba(24, 119, 242, 0.25); /* Sombra azul suave ao focar */
+}
+
+/* Estilo para campos desabilitados */
+.input-group input:disabled,
+.input-group select:disabled,
+.btn-login:disabled {
+    background-color: #e9ecef; /* Fundo cinza claro */
+    color: #6c757d;           /* Texto cinza */
+    opacity: 0.7;             /* Torna semi-transparente */
+    cursor: not-allowed;      /* Muda o cursor para 'não permitido' */
+}
+
 
 .btn-login {
     width: 100%; /* Botão ocupa a largura total */
@@ -62,9 +105,10 @@ body {
     cursor: pointer; /* Muda o cursor para indicar que é clicável */
     transition: background-color 0.3s ease; /* Efeito suave na mudança de cor */
     margin-top: 10px; /* Espaço acima do botão */
+    line-height: 1.5; /* Alinha o texto verticalmente */
 }
 
-.btn-login:hover {
+.btn-login:hover:not(:disabled) { /* Aplica hover apenas se não estiver desabilitado */
     background-color: #165ae2; /* Cor azul um pouco mais escura ao passar o mouse */
 }
 
@@ -72,6 +116,11 @@ body {
     margin-top: 20px; /* Espaço acima dos links */
     font-size: 0.9em;
     color: #555;
+    /* Centraliza os links */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Permite quebrar em linha menor */
 }
 
 .links a {
@@ -85,4 +134,25 @@ body {
 
 .links span {
     margin: 0 5px; /* Espaço entre os links e o separador '|' */
+}
+
+/* Ajustes para telas menores */
+@media (max-width: 480px) {
+    .login-box {
+        padding: 20px; /* Reduz padding em telas muito pequenas */
+    }
+     .links {
+        flex-direction: column; /* Empilha links verticalmente */
+        margin-top: 15px;
+    }
+    .links span {
+        margin: 5px 0; /* Espaço vertical entre links empilhados */
+    }
+}
+
+.app-logo {
+    display: block; /* Faz a imagem se comportar como um bloco */
+    max-width: 150px; /* Define uma largura máxima para a imagem (ajuste conforme o tamanho da sua logo) */
+    height: auto; /* Mantém a proporção da imagem */
+    margin: 0 auto 20px auto; /* Centraliza horizontalmente e adiciona margem inferior */
 }

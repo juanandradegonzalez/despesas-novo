@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - Gestão de Despesas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="login-container"> <div class="login-box"> 
+        <img src="/assets/logomarca.png" alt="Logomarca Gestão de Despesas" class="app-logo">
+        <h2>Cadastro</h2> 
+        <form id="cadastroForm"> 
+            <div class="input-group">
+                    <label for="fullName">Nome Completo</label>
+                    <input type="text" id="fullName" placeholder="Digite seu nome completo" required>
+                </div>
+                <div class="input-group">
+                    <label for="cpf">CPF</label>
+                    <input type="text" id="cpf" placeholder="Digite seu CPF" required>
+                    </div>
+                <div class="input-group">
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" placeholder="Crie sua senha" required>
+                </div>
+                <div class="input-group">
+                    <label for="securityQuestion">Pergunta de Segurança</label>
+                    <select id="securityQuestion" required>
+                        <option value="">-- Selecione uma pergunta --</option>
+                        <option value="Nome da mãe">Qual o nome de solteira da sua mãe?</option>
+                        <option value="Primeira escola">Qual o nome da sua primeira escola?</option>
+                        <option value="Primeiro pet">Qual o nome do seu primeiro animal de estimação?</option>
+                        <option value="Cidade pais conheceram">Qual a cidade onde seus pais se conheceram?</option>
+                        <option value="Marca primeiro carro">Qual a marca do seu primeiro carro?</option>
+                        <option value="Nome rua infância">Qual o nome da rua onde você cresceu?</option>
+                        <option value="Livro infância">Qual o nome do seu livro favorito na infância?</option>
+                        <option value="Hobby principal">Qual o seu hobby principal?</option>
+                        </select>
+                </div>
+                 <div class="input-group">
+                    <label for="securityAnswer">Sua Resposta</label>
+                    <input type="text" id="securityAnswer" placeholder="Digite sua resposta" required>
+                </div>
+
+                <button type="submit" class="btn-login">Cadastrar</button> </form>
+            <div class="links">
+                <span>Já tem conta? <a href="index.html">Entrar</a></span> </div>
+        </div>
+    </div>
+
+    <script src="cadastro.js"></script> <script src="script.js"></script> </body>
+</html>
