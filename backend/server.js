@@ -5,9 +5,18 @@ const cors = require('cors'); // Importa o pacote cors
 const bcrypt = require('bcryptjs'); // Importa a biblioteca bcryptjs
 
 // String de conexão do MongoDB Atlas
-// ***** MUITO IMPORTANTE: Substitua a string abaixo PELA SUA STRING REAL E COMPLETA! *****
-// Exemplo: mongodb+srv://seu_usuario_real:sua_senha_real@cluster0.abcde.mongodb.net/nome_do_seu_db?retryWrites=true&w=majority&appName=seu_app_name
-const dbURI = 'mongodb+srv://juan:88749860@despesas.bg7riti.mongodb.net/?retryWrites=true&w=majority&appName=despesas'; // <== SUBSTITUA AQUI PELA SUA STRING REAL!
+// Lendo a string de conexão de uma variável de ambiente (MAIS SEGURO!)
+// A variável MONGODB_URI será configurada no painel do Render.
+const dbURI = process.env.MONGODB_URI;
+
+// Verifica se a variável de ambiente foi carregada
+if (!dbURI) {
+    console.error('FATAL ERROR: MONGODB_URI não definida nas variáveis de ambiente.');
+    // Em um ambiente de produção real, você provavelmente encerraria a aplicação aqui
+    // process.exit(1);
+} else {
+    console.log('MONGODB_URI carregada das variáveis de ambiente.');
+}
 
 // Conectar ao MongoDB Atlas
 mongoose.connect(dbURI)
